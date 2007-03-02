@@ -1,0 +1,44 @@
+Radio Kill Switch
+------------ -----   -----       ----       ---       --         -
+Most laptops provide the ability for the user to physically disable the radio.
+Some vendors have implemented this as a physical switch that requires no
+software to turn the radio off and on.  On other laptops, however, the switch
+is controlled through a button being pressed and a software driver then making
+calls to turn the radio off and on.  This is referred to as a "software based
+RF kill switch"
+
+Currently this project provides modules for controlling the software RF kill
+switch on the Averatec 5100P and Packard Bell EasyNote E5.  The code may work
+on other laptops, but these are the only models on which it has been tested.
+
+To determine if you have a system that might be compatible with one of the
+provided SW RF Kill switch modules, you can run:
+
+
+        To check for the Packard Bell (to use module pbe) --
+
+        % dd if=/dev/mem bs=1 skip=983040 count=65535 2>/dev/null | strings | egrep "NEW-PC|Insyde Software MobilePRO BIOS"
+
+        To check for the Averatec (to use module av5100) --
+
+        % dd if=/dev/mem bs=1 skip=983040 count=65535 2>/dev/null | strings | egrep "AVERATEC"
+
+If you have one of those laptop models you can imply loading the av5100/pbe5
+module and the radio will be toggled on and off.  In addition, you can turn
+the driver on and off by writing either a 1 or 0 to /proc/av5100/radio or
+/proc/pbe5/radio.  If you automatically load the av5100/pbe5 module when your
+system boots, you may wish to use the radio module parameter to control the
+state of the radio upon loading:
+
+        modprobe av5100 radio=0
+        modprobe pbe5 radio=0
+
+results in the module loading with the radio turned off.  You can then turn the
+radio on by:
+
+        echo 1 > /proc/av5100/radio
+        echo 1 > /proc/pbe5/radio
+
+If you have a SW RF kill switch and can not use one of the above modules,
+please join us on IRC (irc.freenode.net) on channel #ipw2100 and someone may
+be able to help.

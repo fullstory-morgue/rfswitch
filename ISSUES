@@ -1,0 +1,28 @@
+
+ISSUES
+------------ -----   -----       ----       ---       --         -     
+
+No packets! - RF kill switch
+
+If the module loads, but no packets are transferred you may have a SW based
+radio kill switch.  All laptops have some capability to disable the radio
+via a button or switch.  On some laptops that switch is physically tied to the
+IPW2100; simply toggling the switch should enable the radio.
+
+On other laptops, the switch is a button that when pressed requires some
+software driver to send some hardware command to some other piece of hardware
+on the laptop, that then controls the radio.  The driver currently has support
+for the Averatec 5100P laptop's SW switch.  Support will be added for other
+laptop vendors as we become aware of them and figure out how to enable the
+radio.
+
+To know if the radio is being disabled via the RF switch, perform the following:
+
+% cat /proc/net/ipw2100/eth1/state
+Radio is disabled by RF switch
+
+If it says that, then your RF switch is currently disabling the radio.  The 
+driver doesn't currently support switching back to the on state if you have a
+physical RF switch (the radio may turn on and packets will work, but the proc
+entry won't be updated)
+

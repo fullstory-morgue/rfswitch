@@ -1,0 +1,6 @@
+Makefile		Used for building on 2.4, 2.6, internally and exteranlly
+
+FILES			This file
+
+av5100.c                Averatec 5100P SW Switch Module
+pbe5.c                  Packard Bell Easynote SW Switch Module
