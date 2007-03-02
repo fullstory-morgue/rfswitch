@@ -1,0 +1,31 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 01_kernel_2.6.19_compatibility.dpatch by Stefan Lippers-Hollmann <s.l-h@gmx.de>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: No description.
+
+@DPATCH@
+diff -urNad rfswitch-1.1~/av5100.c rfswitch-1.1/av5100.c
+--- rfswitch-1.1~/av5100.c	2006-08-11 03:55:15.000000000 +0200
++++ rfswitch-1.1/av5100.c	2006-11-13 19:11:58.000000000 +0100
+@@ -24,7 +24,7 @@
+ 
+ *******************************************************************************/
+ #include <linux/compiler.h>
+-#include <linux/config.h>
++#include <linux/autoconf.h>
+ #include <linux/errno.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+diff -urNad rfswitch-1.1~/pbe5.c rfswitch-1.1/pbe5.c
+--- rfswitch-1.1~/pbe5.c	2006-08-11 03:55:07.000000000 +0200
++++ rfswitch-1.1/pbe5.c	2006-11-13 19:11:58.000000000 +0100
+@@ -25,7 +25,7 @@
+ *******************************************************************************/
+ 
+ #include <linux/compiler.h>
+-#include <linux/config.h>
++#include <linux/autoconf.h>
+ #include <linux/errno.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>

@@ -1,0 +1,22 @@
+Source: rfswitch
+Section: net
+Priority: optional
+Maintainer: Kel Modderman <kel@otaku42.de>
+Build-Depends: debhelper (>= 5.0.37), bzip2
+Standards-Version: 3.7.2
+
+Package: rfswitch-modules-_KVERS_
+Depends: linux-image-_KVERS_ | kernel-image-_KVERS_
+Provides: rfswitch-modules
+Architecture: any
+Description: rfswitch modules for Linux (kernel _KVERS_).
+ This package contains the set of loadable kernel modules for the
+ rfswitch drivers for controlling the software RF kill switch on
+ certain laptops.
+ .
+ This package contains the compiled kernel modules for _KVERS_
+ .
+ If you have compiled your own kernel, you will most likely need to build
+ your own rfswitch-modules. The rfswitch-source package has been
+ provided for use with the Debian's module-assistant or kernel-package
+ utilities to produce a version of rfswitch-modules for your kernel.
