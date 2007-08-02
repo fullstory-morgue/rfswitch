@@ -1,3 +1,9 @@
+rfswitch (1.1-5) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 02 Aug 2007 23:15:45 +0200
+
 rfswitch (1.1-4) unstable; urgency=low
 
   * Remove reference to obsolete kernel-image-_KVERS_ in
