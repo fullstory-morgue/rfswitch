@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 5.0.37), bzip2
 Standards-Version: 3.7.2
 
 Package: rfswitch-modules-_KVERS_
-Depends: linux-image-_KVERS_ | kernel-image-_KVERS_
+Depends: linux-image-_KVERS_
 Provides: rfswitch-modules
 Architecture: any
 Description: rfswitch modules for Linux (kernel _KVERS_).
