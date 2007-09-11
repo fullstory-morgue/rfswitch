@@ -1,8 +1,9 @@
 rfswitch (1.1-5) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
+  * add VCS control headers.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 02 Aug 2007 23:15:45 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 11 Sep 2007 20:20:10 +0200
 
 rfswitch (1.1-4) unstable; urgency=low
 
