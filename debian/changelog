@@ -1,10 +1,9 @@
-rfswitch (1.1-5) UNRELEASED; urgency=low
+rfswitch (1.1-5) unstable; urgency=low
 
-  * NOT RELEASED YET
   * add VCS control headers.
   * update syntax for Vcs headers in debian/control
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 07 Oct 2007 14:46:05 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 25 Oct 2007 19:03:04 +0200
 
 rfswitch (1.1-4) unstable; urgency=low
 
