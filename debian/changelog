@@ -1,8 +1,9 @@
 rfswitch (1.1-6) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
+  * update to Standards-Version 3.7.3, no changes necessary.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 25 Oct 2007 19:04:57 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 03 Dec 2007 13:57:49 +0100
 
 rfswitch (1.1-5) unstable; urgency=low
 
