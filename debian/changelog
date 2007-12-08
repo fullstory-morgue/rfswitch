@@ -1,9 +1,10 @@
-rfswitch (1.1-6) UNRELEASED; urgency=low
+rfswitch (1.1-6) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * use official Homepage tag.
+  * add debian/watch.
   * update to Standards-Version 3.7.3, no changes necessary.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 03 Dec 2007 13:57:49 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 08 Dec 2007 13:29:31 +0100
 
 rfswitch (1.1-5) unstable; urgency=low
 

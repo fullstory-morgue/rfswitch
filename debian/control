@@ -7,6 +7,7 @@ Build-Depends: cdbs, debhelper (>= 5.0.37), bzip2, dpatch
 Standards-Version: 3.7.3
 Vcs-Svn: svn://svn.berlios.de/fullstory/rfswitch/trunk
 Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/rfswitch/trunk/
+Homepage: http://rfswitch.sourceforge.net/
 
 Package: rfswitch-source
 Architecture: all
@@ -19,5 +20,3 @@ Description: source code for the rfswitch drivers
  .
  This package provides the source code for the rfswitch kernel modules.
  Kernel source or headers are required to compile these modules.
- .
- Homepage: http://rfswitch.sourceforge.net/
