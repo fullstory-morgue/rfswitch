@@ -1,3 +1,9 @@
+rfswitch (1.1-8) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 19 Jan 2008 01:10:08 +0100
+
 rfswitch (1.1-7) unstable; urgency=low
 
   * update to debhelper compat 6.
