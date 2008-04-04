@@ -25,7 +25,6 @@
 *******************************************************************************/
 
 #include <linux/compiler.h>
-#include <linux/config.h>
 #include <linux/errno.h>
 #include <linux/kernel.h>
 #include <linux/module.h>
@@ -38,7 +37,7 @@
 #include <asm/io.h>
 
 #define DRV_NAME		"pbe5"
-#define DRV_VERSION		"1.1"
+#define DRV_VERSION		"1.3"
 #define DRV_DESCRIPTION		"SW RF kill switch for Packard Bell EasyNote E5"
 #define DRV_AUTHOR		"Pedro Ramalhais"
 #define DRV_LICENSE		"GPL"
@@ -83,12 +82,7 @@ unsigned char pbe5_get_radio(void)
 {
 	unsigned char val = 0x00;
 	
-	if (request_region(PBE5_PORT_TOGGLE,1, DRV_NAME) == NULL) {
-		printk(KERN_INFO DRV_NAME ": failed at request_region()\n");
-		return -1;
-	}
 	val = inb(PBE5_PORT_TOGGLE);
-	release_region(PBE5_PORT_TOGGLE,1);
 	
 	return val;
 }
@@ -99,18 +93,11 @@ static void pbe5_set_radio(int state_set)
 
 	if (pbe5_radio_status != state_set) {
 		// Set the radio toggle register
-		if (request_region(PBE5_PORT_TOGGLE,1, DRV_NAME) == NULL ||
-		    request_region(PBE5_PORT_APPLY,1, DRV_NAME) == NULL) {
-			printk(KERN_INFO DRV_NAME ": failed at request_region()\n");
-			return;
-		}
 		outb(PBE5_VALUE_TOGGLE_ON, PBE5_PORT_TOGGLE);
 		// Commit the radio toggle register value
 		outb(PBE5_VALUE_APPLY, PBE5_PORT_APPLY);
 		// Update the radio status
 		pbe5_radio_status = pbe5_get_radio();
-		release_region(PBE5_PORT_TOGGLE,1);
-		release_region(PBE5_PORT_APPLY,1);
 
 		printk(KERN_INFO DRV_NAME ": Radio turned %s\n",
 			(state_set  == PBE5_RADIO_ON) ? "ON" : "OFF");

@@ -111,7 +111,9 @@ install: modules
 endif
 
 uninstall:
-	rm -rf $(KMISC)
+	cd $(KMISC)
+	rm -rf $(addsuffix .ko,$(list-m))
+	cd -
 	/sbin/depmod -a
 
 endif

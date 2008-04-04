@@ -24,7 +24,6 @@
 
 *******************************************************************************/
 #include <linux/compiler.h>
-#include <linux/config.h>
 #include <linux/errno.h>
 #include <linux/kernel.h>
 #include <linux/module.h>
@@ -38,7 +37,7 @@
 
 
 #define DRV_NAME		"av5100"
-#define DRV_VERSION		"1.1"
+#define DRV_VERSION		"1.3"
 #define DRV_DESCRIPTION		"SW RF kill switch for Averatec 5100P"
 #define DRV_COPYRIGHT		"Copyright(c) 2003-2004 Intel Corporation"
 
@@ -68,13 +67,6 @@ static int av5100_radio = AV5100_RADIO_OFF;
 
 static void av5100_set_radio(int state)
 {
-	if (request_region(0xcf8,1, DRV_NAME) == NULL ||
-	    request_region(0x0072,1, DRV_NAME) == NULL ||
-	    request_region(0x1184,1, DRV_NAME) == NULL ||
-	    request_region(0x00b2,1, DRV_NAME) == NULL) {
-		printk(KERN_INFO DRV_NAME ": failed at request_region()\n");
-		return;
-	}
 	printk(KERN_INFO DRV_NAME ": Radio being turned %s\n",
 	       (state  == AV5100_RADIO_ON) ? "ON" : "OFF");
 	outl(0x80020800, 0xcf8);
@@ -82,10 +74,6 @@ static void av5100_set_radio(int state)
 	outl(0x1800ffff, 0x1184); 
 	outb(state, 0x00b2);
 	av5100_radio = state;
-	release_region(0xcf8,2);
-	release_region(0x0072,1);
-	release_region(0x1184,2);
-	release_region(0x00b2,1);
 }
 
 
