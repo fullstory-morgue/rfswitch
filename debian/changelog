@@ -1,8 +1,10 @@
 rfswitch (1.3-1) unstable; urgency=low
 
   * New upstream release.
+  * drop patches, applied upstream.
+  * drop dpatch, no longer necessary.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 05 Apr 2008 00:00:55 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 05 Apr 2008 00:08:16 +0200
 
 rfswitch (1.1-8) unstable; urgency=low
 
