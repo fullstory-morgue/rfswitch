@@ -1,0 +1,11 @@
+--- a/Makefile
++++ b/Makefile
+@@ -67,7 +67,7 @@
+ all: modules
+ 
+ clean:
+-	rm -f *.mod.c *.mod *.o *.ko .*.cmd .*.flags Modules.symvers
++	rm -f *.mod.c *.mod *.o *.ko .*.cmd .*.flags *.symvers *.order
+ 	rm -rf $(PWD)/tmp
+ 
+ 

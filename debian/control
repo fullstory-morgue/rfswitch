@@ -3,7 +3,7 @@ Section: net
 Priority: optional
 Maintainer: Kel Modderman <kel@otaku42.de>
 Uploaders: Stefan Lippers-Hollmann <s.l-h@gmx.de>
-Build-Depends: cdbs, debhelper (>= 6), bzip2
+Build-Depends: debhelper (>= 7), bzip2, quilt
 Standards-Version: 3.7.3
 Vcs-Svn: svn://svn.berlios.de/fullstory/rfswitch/trunk
 Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/rfswitch/trunk/
@@ -11,7 +11,7 @@ Homepage: http://rfswitch.sourceforge.net/
 
 Package: rfswitch-source
 Architecture: all
-Depends: debhelper (>= 5.0.37), module-assistant, bzip2
+Depends: debhelper (>= 7), module-assistant, bzip2
 Description: source code for the rfswitch drivers
  Modules for controlling the software RF kill switch on the
  Averatec 5100P and Packard Bell EasyNote E5. The code may work 

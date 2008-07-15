@@ -1,0 +1,40 @@
+--- a/av5100.c
++++ b/av5100.c
+@@ -107,7 +107,7 @@
+ {
+ 	if (dir_base) {
+ 		remove_proc_entry("radio", dir_base);
+-		remove_proc_entry(DRV_NAME, &proc_root);
++		remove_proc_entry(DRV_NAME, NULL);
+ 		dir_base = NULL;
+ 	}
+ }
+@@ -118,7 +118,7 @@
+ 	struct proc_dir_entry *ent;
+ 	int err = 0;
+ 
+-	dir_base = create_proc_entry(DRV_NAME, S_IFDIR, &proc_root);
++	dir_base = create_proc_entry(DRV_NAME, S_IFDIR, NULL);
+ 	if (dir_base == NULL) {
+ 		printk(KERN_ERR DRV_NAME ": Unable to initialise /proc/" 
+ 		       DRV_NAME "\n");
+--- a/pbe5.c
++++ b/pbe5.c
+@@ -138,7 +138,7 @@
+ {
+ 	if (dir_base) {
+ 		remove_proc_entry("radio", dir_base);
+-		remove_proc_entry(DRV_NAME, &proc_root);
++		remove_proc_entry(DRV_NAME, NULL);
+ 		dir_base = NULL;
+ 	}
+ }
+@@ -149,7 +149,7 @@
+ 	struct proc_dir_entry *ent;
+ 	int err = 0;
+ 
+-	dir_base = create_proc_entry(DRV_NAME, S_IFDIR, &proc_root);
++	dir_base = create_proc_entry(DRV_NAME, S_IFDIR, NULL);
+ 	if (dir_base == NULL) {
+ 		printk(KERN_ERR DRV_NAME ": Unable to initialise /proc/" 
+ 		       DRV_NAME "\n");

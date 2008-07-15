@@ -1,23 +1,58 @@
 #!/usr/bin/make -f
 
-include /usr/share/cdbs/1/rules/debhelper.mk
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
 
-install/rfswitch-source::
-	# Enforce executable bit on debian/rules, and create directory structure for 
-	# modules source
+include /usr/share/quilt/quilt.make
+
+build: build-stamp
+build-stamp: $(QUILT_STAMPFN)
+	dh_testdir
+	touch $@
+
+clean: unpatch
+	dh_testdir
+	dh_clean build-stamp install-stamp
+
+install: build install-stamp
+install-stamp:
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	
 	install -D -m 0755 debian/rules.modules \
 		debian/tmp/modules/rfswitch/debian/rules
 	
-	# Prepare the other debian stuff
 	for f in debian/*.modules.in debian/control debian/compat  \
 		 debian/copyright debian/changelog; do \
 		install -m 0644 $$f debian/tmp/modules/rfswitch/debian/; \
 	done
 	
-	# Prepare upstream source
 	tar -cf - -T debian/driver.files | \
 		tar -C debian/tmp/modules/rfswitch/ -xf -
 		
-	# Prepare the debian source tarball
+	mkdir -p debian/rfswitch-source/usr/src/
 	tar jcf debian/rfswitch-source/usr/src/rfswitch.tar.bz2 \
 		-C debian/tmp modules
+	
+	touch $@
+
+binary-arch:
+# We have nothing to do by default.
+
+binary-indep: build install
+	dh_testdir
+	dh_testroot
+	dh_install
+	dh_installdocs
+	dh_installchangelogs
+	dh_link
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean install binary-indep binary-arch binary
