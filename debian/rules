@@ -7,18 +7,16 @@ include /usr/share/quilt/quilt.make
 
 build: build-stamp
 build-stamp: $(QUILT_STAMPFN)
-	dh_testdir
+	dh build --before configure
+	dh build --after build
 	touch $@
 
 clean: unpatch
-	dh_testdir
-	dh_clean build-stamp install-stamp
+	dh $@
 
-install: build install-stamp
-install-stamp:
-	dh_testdir
-	dh_testroot
-	dh_clean -k
+install: install-stamp
+install-stamp: build-stamp
+	dh install --before dh_auto_install
 	
 	install -D -m 0755 debian/rules.modules \
 		debian/tmp/modules/rfswitch/debian/rules
@@ -37,22 +35,12 @@ install-stamp:
 	
 	touch $@
 
-binary-arch:
-# We have nothing to do by default.
+binary-arch: install
+	# We have nothing to do by default.
+	#dh $@
 
-binary-indep: build install
-	dh_testdir
-	dh_testroot
-	dh_install
-	dh_installdocs
-	dh_installchangelogs
-	dh_link
-	dh_compress
-	dh_fixperms
-	dh_installdeb
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
+binary-indep: install
+	dh $@
 
-binary: binary-indep binary-arch
-.PHONY: build clean install binary-indep binary-arch binary
+binary: binary-arch binary-indep
+.PHONY: binary binary-arch binary-indep install clean build
