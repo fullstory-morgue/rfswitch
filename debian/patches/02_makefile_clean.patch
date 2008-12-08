@@ -1,6 +1,8 @@
+take care upstream's clean target really cleans up.
+
 --- a/Makefile
 +++ b/Makefile
-@@ -67,7 +67,7 @@
+@@ -67,7 +67,7 @@ MODPATH := $(DESTDIR)/lib/modules/$(KERN
  all: modules
  
  clean:

@@ -1,6 +1,8 @@
+add kernel 2.6.26 compatibility.
+
 --- a/av5100.c
 +++ b/av5100.c
-@@ -107,7 +107,7 @@
+@@ -107,7 +107,7 @@ static void av5100_proc_cleanup(void)
  {
  	if (dir_base) {
  		remove_proc_entry("radio", dir_base);
@@ -9,7 +11,7 @@
  		dir_base = NULL;
  	}
  }
-@@ -118,7 +118,7 @@
+@@ -118,7 +118,7 @@ static int av5100_proc_init(void)
  	struct proc_dir_entry *ent;
  	int err = 0;
  
@@ -20,7 +22,7 @@
  		       DRV_NAME "\n");
 --- a/pbe5.c
 +++ b/pbe5.c
-@@ -138,7 +138,7 @@
+@@ -138,7 +138,7 @@ static void pbe5_proc_cleanup(void)
  {
  	if (dir_base) {
  		remove_proc_entry("radio", dir_base);
@@ -29,7 +31,7 @@
  		dir_base = NULL;
  	}
  }
-@@ -149,7 +149,7 @@
+@@ -149,7 +149,7 @@ static int pbe5_proc_init(void)
  	struct proc_dir_entry *ent;
  	int err = 0;
  

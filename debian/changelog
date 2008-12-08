@@ -2,8 +2,11 @@ rfswitch (1.3-3) unstable; urgency=low
 
   * make lintian happy and depend on ${misc:Depends}.
   * switch to dh7.
+  * fix syntax error.
+  * refresh patches.
+  * add patch descriptions.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 08 Dec 2008 23:00:38 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 08 Dec 2008 23:05:35 +0100
 
 rfswitch (1.3-2) unstable; urgency=low
 

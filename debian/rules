@@ -33,6 +33,7 @@ install-stamp: build-stamp
 	tar jcf debian/rfswitch-source/usr/src/rfswitch.tar.bz2 \
 		-C debian/tmp modules
 	
+	dh install --after dh_auto_install
 	touch $@
 
 binary-arch: install
