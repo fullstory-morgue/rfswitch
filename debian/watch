@@ -1,2 +1,2 @@
 version=3
-http://heanet.dl.sourceforge.net/sourceforge/rfswitch/rfswitch-(.*)\.tar\.gz debian uupdate
+http://sf.net/rfswitch/rfswitch-(.*)\.tar\.gz debian uupdate
