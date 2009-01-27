@@ -7,13 +7,6 @@ MA_DIR ?= /usr/share/modass
 
 BASEVERS := $(shell echo $(KVERS) | cut -d. -f-2)
 
-# kernel module filename extension
-ifeq ($(BASEVERS),2.6)
-	modextension := .ko
-else
-	modextension := .o
-endif
-
 .PHONY: kdist_config
 kdist_config: prep-deb-files
 
@@ -21,13 +14,13 @@ kdist_config: prep-deb-files
 binary-modules: kdist_config
 	dh_testdir
 	dh_testroot
-	dh_clean -k
+	dh_prep
 	
 	$(MAKE) -C $(CURDIR) KVER=$(KVERS) KSRC=$(KSRC)
 
-	dh_installdirs				lib/modules/$(KVERS)/misc
-	dh_install av5100$(modextension)	lib/modules/$(KVERS)/misc
-	dh_install pbe5$(modextension)		lib/modules/$(KVERS)/misc
+	dh_installdirs		lib/modules/$(KVERS)/misc
+	dh_install av5100.ko	lib/modules/$(KVERS)/misc
+	dh_install pbe5.ko	lib/modules/$(KVERS)/misc
 
 	dh_installdocs
 	dh_installchangelogs
