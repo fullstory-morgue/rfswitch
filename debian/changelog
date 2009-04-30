@@ -1,8 +1,9 @@
-rfswitch (1.3-6) UNRELEASED; urgency=low
+rfswitch (1.3-6) ORPHANED; urgency=low
 
   * NOT RELEASED YET
+  * ORPHAN PACKAGE
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 27 Jan 2009 17:41:51 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 30 Apr 2009 21:20:23 +0200
 
 rfswitch (1.3-5) unstable; urgency=low
 
